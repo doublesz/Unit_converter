@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg: #1C1C1C;
+    --top-color: #6943FF;
+    --container-bg: #1F2937;
+    --grid-items: #273549;
+    --txt-color: #fff;
+}
+
+body {
+    background-color: var(--main-bg);
+    text-align: center;
+    color: var(--txt-color);
+}
+
+.container {
+    width: 30%;
+    background-color: var(--top-color);
+    margin: auto;
+}
+
+.form {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.conversions-grid {
+    background-color: var(--container-bg);
+}
+
+.converted {
+    background-color: var(--grid-items);
+    margin: 10px;
+}
