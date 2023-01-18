@@ -13,8 +13,8 @@
     --txt-color: #fff;
 }
 
-html, body {
-    height: 100%;
+body {
+    height: 100vh;
     font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
@@ -35,20 +35,19 @@ body {
 .input-sec {
     background-color: var(--top-color);
     padding: 10px;
-    width: 100%;
 }
 
 h1 {
     font-weight: 800;
-    font-size: 28px;
-    padding: 1.5rem 2rem;
+    font-size: 1.75rem;
+    padding: 2.1rem 2rem;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 1.5rem;
 }
 
 input {
@@ -79,7 +78,7 @@ button {
     font-size: 1rem;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 2.1rem;
 }
 
 button:hover:after {
@@ -97,15 +96,28 @@ button:active {
     transform: scale(0.98);
 }
 
-.results-grid {
-    width: 100%;
-    padding: 5px;
+.results {
+    padding: 1rem 0.5rem;
     background-color: var(--container-bg);
 }
 
 .converted {
     background-color: var(--grid-items);
-    margin: 5px 1rem;
+    margin: 0.6rem 1rem;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #CCC1FF;
+    padding: 1.5rem 0 0.5rem;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-bottom: 1.5rem;
 }
 
 .length {
