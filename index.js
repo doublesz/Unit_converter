@@ -4,6 +4,11 @@
 1 kilogram = 2.204 pound
 */
 
+// todo -> think how to convert unit names to its singular form
+// allow only number input
+// parse input value before calculation
+// remove arrows from input box
+
 const inputEl = document.querySelector('.input-el');
 const convertBtn = document.querySelector('.convert-btn');
 const lenDiv = document.querySelector('.length');
@@ -49,8 +54,7 @@ massDiv.appendChild(appendTxt(genTxt(massObj)));
 
 const lenP = document.querySelector('.length p');
 const volP = document.querySelector('.vol p');
-const massP = document.querySelector('.mass p')
-console.log(lenP)
+const massP = document.querySelector('.mass p');
 
 const calculateUnits = () => {
     val = inputEl.value;
