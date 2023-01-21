@@ -1,6 +1,3 @@
-/* <p>20 meters = 65.616 feet | 20 feet = 6.096 meters</p> */
-//20 liters = 5.284 gallons | 20 gallons = 75.708 liters
-// 20 kilos = 44.092 pounds | 20 pounds = 9.072 kilos
 /*
 1 meter = 3.281 feet
 1 liter = 0.264 gallon
@@ -13,26 +10,30 @@ const lenDiv = document.querySelector('.length');
 const volDiv = document.querySelector('.vol');
 const massDiv = document.querySelector('.mass');
 
+let val = 0;
+
 const lenObj = {
-    unit: 'meter(s)',
+    unit1: 'meters',
     unit2: 'feet',
-    rate: 3.281,
-    genTxt () { return`0 ${this.unit} = ${(0 * this.rate).toFixed(3)} ${this.unit2} | 0 ${this.unit2} = ${(0 / this.rate).toFixed(3)} ${this.unit}`}
+    rate: 3.281
 }
 
 const volObj = {
-    unit: 'liter(s)',
-    unit2: 'gallon(s)',
-    rate: 0.264,
-    txt: `0 ${volObj.unit} = ${(0 * volObj.rate).toFixed(3)} ${volObj.unit2} | 0 ${volObj.unit2} = ${(0 / volObj.rate).toFixed(3)} ${volObj.unit}`
+    unit1: 'liters',
+    unit2: 'gallons',
+    rate: 0.264
 }
 
 const massObj = {
-    unit: 'kilo(s)',
-    unit2: 'pound(s)',
-    rate: 2.204,
-    txt: `0 ${massObj.unit} = ${(0 * massObj.rate).toFixed(3)} ${massObj.unit2} | 0 ${massObj.unit2} = ${(0 / massObj.rate).toFixed(3)} ${massObj.unit}`
+    unit1: 'kilos',
+    unit2: 'pounds',
+    rate: 2.204
 }
+
+const genTxt = (obj) => {
+    return `${val} ${obj.unit1} = ${(val * obj.rate).toFixed(3)} ${obj.unit2} | ${val} ${obj.unit2} = ${(val / obj.rate).toFixed(3)} ${obj.unit1}`
+}
+
 
 const appendTxt = (txt) => {
     const p = document.createElement('p');
@@ -42,20 +43,21 @@ const appendTxt = (txt) => {
 }
 
 
-lenDiv.appendChild(appendTxt(lenObj.genTxt()));
-// volDiv.appendChild(appendTxt(volObj.txt));
-// massDiv.appendChild(appendTxt(massObj.txt));
+lenDiv.appendChild(appendTxt(genTxt(lenObj)));
+volDiv.appendChild(appendTxt(genTxt(volObj)));
+massDiv.appendChild(appendTxt(genTxt(massObj)));
 
+const lenP = document.querySelector('.length p');
+const volP = document.querySelector('.vol p');
+const massP = document.querySelector('.mass p')
+console.log(lenP)
 
 const calculateUnits = () => {
-    const inputVal = inputEl.value;
-    let lenTxt = `${inputVal} ${lenObj.unit} = ${(inputVal * lenObj.rate).toFixed(3)} ${lenObj.unit2} | ${inputVal} ${lenObj.unit2} = ${(inputVal / lenObj.rate).toFixed(3)} ${lenObj.unit}`;
-    let volTxt = `${inputVal} liters = ${(inputVal * 0.264).toFixed(3)} gallons | ${inputVal} gallons = ${(inputVal / 0.264).toFixed(3)} liters`;
-    let massTxt = `${inputVal} kilos = ${(inputVal * 2.204).toFixed(3)} pounds | ${inputVal} pounds = ${(inputVal / 2.204).toFixed(3)} kilos`;
+    val = inputEl.value;
     
-    lenDiv.appendChild(appendTxt(lenTxt));
-    volDiv.appendChild(appendTxt(volTxt));
-    massDiv.appendChild(appendTxt(massTxt));
+    lenP.innerText = genTxt(lenObj);
+    volP.innerText = genTxt(volObj);
+    massP.innerText = genTxt(massObj);
 }
 
 convertBtn.addEventListener('click', calculateUnits);
