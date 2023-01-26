@@ -57,7 +57,7 @@ const volP = document.querySelector('.vol p');
 const massP = document.querySelector('.mass p');
 
 const calculateUnits = () => {
-    val = inputEl.value;
+    val = parseFloat(inputEl.value);
     
     lenP.innerText = genTxt(lenObj);
     volP.innerText = genTxt(volObj);
